@@ -1,5 +1,5 @@
 html {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 body {
@@ -22,5 +22,11 @@ a {
 	&:hover,
 	&:focus {
 		color: $link-color-hover;
+	}
+}
+
+@media screen and (min-width: $breakpoint-md) {
+	html {
+		font-size: 18px;
 	}
 }
