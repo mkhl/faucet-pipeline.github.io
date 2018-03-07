@@ -1,0 +1,26 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	font-family: "Titillium Web", sans-serif;
+	color: $body-color;
+}
+
+strong {
+	font-weight: 700;
+}
+
+p {
+	line-height: $base-line-height;
+}
+
+a {
+	transition: color ease-in-out .2s;
+	color: $link-color;
+
+	&:hover,
+	&:focus {
+		color: $link-color-hover;
+	}
+}
