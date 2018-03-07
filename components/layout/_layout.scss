@@ -1,25 +1,192 @@
-$logo-width: 156px;
-$logo-height: 200px;
+@import "normalize.css/normalize";
+
+$faucet-blue: #37375f;
+$faucet-red: #dd5271;
+
+$body-color: #222222;
+$link-color: $faucet-red;
+$link-color-hover: $faucet-blue;
+
+$base-line-height: 1.75;
+
+$spacer-lg: 3rem;
+
+$breakpoint-xs: 0;
+$breakpoint-xs-sm: 25rem; // 400px
+$breakpoint-sm: 36rem;         // 576px
+$breakpoint-md: 48rem;         // 768px
+$breakpoint-md-lg: 60rem;      // 960px
+$breakpoint-lg: 75rem;         // 1200px
+$breakpoint-lg-xl: 82rem; // 1312px
+$breakpoint-xl: 90.25rem;      // 1444px
+
+html {
+	font-size: 18px;
+}
 
 body {
-	max-width: 50em;
+	font-family: "Titillium Web", sans-serif;
+	color: $body-color;
+}
+
+strong {
+	font-weight: 700;
+}
+
+.grid {
+	max-width: 90%;
 	margin: 0 auto;
 }
 
-header {
-	margin-top: 10px;
-	padding-top: $logo-height;
-	text-align: center;
-	background-image: asset-url("logo.png");
-	background-size: $logo-width $logo-height;
-	background-position: top center;
-	background-repeat: no-repeat;
+.aside {
+	grid-area: aside;
 }
 
-header h1 {
-	margin: 0;
+.main {
+	grid-area: main;
 }
 
-header p {
-	font-size: 1.2em;
+.header {
+	display: flex;
+	padding: 0 0 0 1rem;
+	background-image: linear-gradient(to right bottom, $faucet-blue 50%, #fff 50%);
+}
+
+.header-left {
+	flex-basis: 50%;
+	padding-top: 1rem;
+	font-weight: 700;
+	color: #fff;
+}
+
+.header-right {
+	flex-basis: 70%;
+	align-self: flex-start;
+}
+
+.header-logo {
+	max-width: 100%;
+}
+
+a {
+	transition: color ease-in-out .2s;
+	color: $link-color;
+
+	&:hover,
+	&:focus {
+		color: $link-color-hover;
+	}
+}
+
+p {
+	line-height: $base-line-height;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.nav-toc-list {
+	padding: 0;
+	line-height: $base-line-height;
+	list-style: none;
+
+	.nav-toc-list {
+		padding-left: 1rem;
+	}
+}
+
+.nav-toc-link {
+	text-decoration: none;
+
+	&--active {
+		&:before {
+			content: "👉"
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $faucet-blue;
+	max-height: 5rem;
+	margin-top: 2rem;
+	padding: 1rem 1.5rem;
+}
+
+.footer-links {
+	display: flex;
+	align-items: center;
+}
+
+.footer-logo {
+	width: 8rem;
+}
+
+.footer-link {
+	display: block;
+
+	& + & {
+		margin-left: 1.5rem;
+	}
+}
+
+@media screen and (min-width: $breakpoint-xs-sm) {
+	.header-left {
+		font-size: 1.25rem;
+	}
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+	.header {
+		padding: 1rem 2rem 0;
+	}
+
+	.header-left {
+		font-size: 1.5rem;
+		padding: 1rem 0;
+	}
+}
+
+@media screen and (min-width: $breakpoint-md) {
+	.header-left {
+		font-size: 2rem;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 30% 70%;
+		grid-template-areas:
+		"aside main";
+		max-width: 90%;
+	}
+}
+
+@media screen and (min-width: $breakpoint-md-lg) {
+	.header-left {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+	.header-left {
+		font-size: 3.5rem;
+	}
+
+	.grid {
+		max-width: 70%;
+	}
+}
+
+@media screen and (min-width: $breakpoint-lg-xl) {
+	.header {
+		padding: 2rem 3rem 0;
+	}
+
+	.header-left {
+		font-size: 4rem;
+		padding: 2rem 0;
+	}
 }
